@@ -4,7 +4,7 @@ In Mush_images youn can find what they look like
 
 || **Species name** | **Common name** | **Edibility** |
 |:-----:|:----------------:|:---------------:|:-------------:|
-|**01**| Amanita Caesarea | Cocco | Good |
+|**01**| ![Amanita Caesarea](/Mush_species/01_AmanitaCaesarea.jpg) | Cocco | Good |
 |**02**| Amanita Muscaria | Cocco del monte | Toxic |
 |**03**| Amanita Vaginata | Amanita | Not edible |
 |**04**| Amanita Virosa | Manina | Deadly |
