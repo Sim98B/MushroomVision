@@ -10,7 +10,7 @@ In [Mush_species](/Mush_species) youn can find what they look like
 |**05**| [Armillariella Mellea](https://wikipedia.org/wiki/Armillaria_mellea) | Famigliola | <img src="/Mush_species/05_ArmillariellaMellea.jpg" alt="Cocco" width="250" height="150" /> | Good |
 |**06**| [Boletus Aereus](https://wikipedia.org/wiki/Boletus_aereus) | Porcino | <img src="/Mush_species/06_BoletusAereus.jpg" alt="Cocco" width="350" height="150" /> | Great |
 |**07**| [Boletus Edilus](https://wikipedia.org/wiki/Boletus_edulis) | Porcino | <img src="/Mush_species/07_BoletusEdilus.jpg" alt="Cocco" width="250" height="150" /> | Great |
-|**08**| [Boletus Erythropus]() | Cappella Malefica | <img src="/Mush_species/08_BoletusErythropus.jpg" alt="Cocco" width="250" height="150" /> | Toxic when raw |
+|**08**| [Boletus Erythropus](https://it.wikipedia.org/wiki/Neoboletus_erythropus) | Cappella Malefica | <img src="/Mush_species/08_BoletusErythropus.jpg" alt="Cocco" width="250" height="150" /> | Toxic when raw |
 |**09**| [Boletus Pinicola](https://wikipedia.org/wiki/Boletus_pinophilus) | Porcino | <img src="/Mush_species/09_BoletusPinicola.jpg" alt="Cocco" width="250" height="150" /> | Great |
 |**10**| [Boletus Reticulatus](https://wikipedia.org/wiki/Boletus_aestivalis) | Biancarello | <img src="/Mush_species/10_BoletusReticulatus.jpg" alt="Cocco" width="250" height="150" /> | Great |
 |**11**| [Cantharellus Cibarius](https://wikipedia.org/wiki/Cantharellus_cibarius) | Galletto | <img src="/Mush_species/11_CantharellusCibarius.jpg" alt="Cocco" width="250" height="150" /> | Great |
