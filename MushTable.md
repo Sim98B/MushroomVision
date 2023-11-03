@@ -1,5 +1,7 @@
-# Mushrooms species we can found on the Amiata mountain, Tuscany, Italy.
-In [Mush_species](/Mush_species) youn can find what they look like
+# MushroomVision species' information
+**All the 20 species can be found on the Amiata mountain, Tuscany, Italy.**
+These photos are taken from [Macchia Faggeta](https://www.macchiafaggeta.com)'s the 2023 calendar, a society based in [Abbadia San Salvatore](https://www.comune.abbadia.siena.it) that works to protect the mountain and preserve its history.
+
 
 || **Species name** | **Common name** | **Photo** | **Edibility** |
 |:----:|:----------------:|:---------------:|:-------------:|:-------------:|
