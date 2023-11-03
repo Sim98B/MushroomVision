@@ -1,6 +1,5 @@
 # Mushrooms species we can found on the Amiata mountain, Tuscany, Italy.
-In Mush_images youn can find what they look like
-
+In Mush_species youn can find what they look like
 
 || **Species name** | **Common name** | **Edibility** |
 |:-----:|:----------------:|:---------------:|:-------------:|
