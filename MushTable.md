@@ -19,7 +19,7 @@ In [Mush_species](/Mush_species) youn can find what they look like
 |**14**| [Mycena](https://wikipedia.org/wiki/Mycena) | Micena | <img src="/Mush_species/14_Mycena.jpg" alt="Cocco" width="250" height="150" /> | Toxic |
 |**15**| [Macrolepiota Procera](https://wikipedia.org/wiki/Macrolepiota_procera) | Pamparice | <img src="/Mush_species/15_MacrolepiotaProcera.jpg" alt="Cocco" width="250" height="150" /> | Edible |
 |**16**| [Oudemansiella Mucida](https://wikipedia.org/wiki/Oudemansiella_mucida) | Mucida | <img src="/Mush_species/16_OudemansiellaMucida.jpg" alt="Cocco" width="250" height="150" /> | Not edible |
-|**17**| [Ramaria Botryitis](https://wikipedia.org/wiki/Ramaria_botrytis) | Manina | <img src="/Mush_species/17_RamariaBotryitis.jpg" alt="Cocco" width="250" height="150" /> | Good |
+|**17**| [Ramaria Botrytis](https://wikipedia.org/wiki/Ramaria_botrytis) | Manina | <img src="/Mush_species/17_RamariaBotryitis.jpg" alt="Cocco" width="250" height="150" /> | Good |
 |**18**| [Ramaria Formosa](https://wikipedia.org/wiki/Ramaria_formosa) | Manina | <img src="/Mush_species/18_RamariaFormosa.jpg" alt="Cocco" width="250" height="150" /> | Not edible |
 |**19**| [Russella Vesca](https://wikipedia.org/wiki/Russula_vesca) | Rossella | <img src="/Mush_species/19_RussellaVesca.jpg" alt="Cocco" width="250" height="150" /> | Good |
 |**20**| [Russula Virescens](https://wikipedia.org/wiki/Russula_virescens) | Verdella | <img src="/Mush_species/20_RussulaVirescens.jpg" alt="Cocco" width="250" height="150" /> | Good |
