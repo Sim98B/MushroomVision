@@ -13,6 +13,6 @@ def set_seed(seed: int = 42):
     Args:
         seed (int, optional): Random seed to set. Defaults to 42.
     """
-    random.seed(42)
+    random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
