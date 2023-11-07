@@ -4,6 +4,7 @@ Contains utility functions
 """
 
 import random
+import torch
 
 def set_seed(seed: int = 42):
     """
