@@ -1,5 +1,5 @@
 # Directory Structure
-```python
+```
 demos/
 └── foodvision_mini/
     ├── 09_pretrained_effnetb2_feature_extractor_pizza_steak_sushi_20_percent.pth
