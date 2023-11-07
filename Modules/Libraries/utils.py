@@ -7,7 +7,7 @@ import torch
 
 def set_seed(seed: int = 42):
     """
-    Set a random state seed for both torch and cuda
+    Set a random state seed for torch, cuda and random.
     
     Args:
         seed (int, optional): Random seed to set. Defaults to 42.
