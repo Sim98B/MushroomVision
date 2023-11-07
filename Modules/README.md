@@ -3,6 +3,6 @@
 ```python
 Modules/
 ├── data/
-|    ├── inspect_dir.py
+│    ├── inspect_dir.py
 ├──
 ```
