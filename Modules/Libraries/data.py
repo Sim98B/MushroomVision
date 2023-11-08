@@ -40,8 +40,6 @@ def download_data(source: str,
 
   if remove_source:
     os.remove(data_path / target_file)
-
-  data_path = list(data_path.glob("*"))[0]
   
   return data_path
     
