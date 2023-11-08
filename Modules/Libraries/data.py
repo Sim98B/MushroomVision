@@ -1,20 +1,16 @@
 """
 Contains functions to inspect and manipulate data
 """
-try:
-  import torch
-  import torchvision
-except:
-  pip install torch torchvision
-
 import matplotlib.pyplot as plt
 import os
 from pathlib import Path
 from PIL import Image
 import requests
 import random
-from torchvision import datasets, transforms
+import torch
+import torchvision
 from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
 import zipfile
 
 def dataloader(data_dir: str,
