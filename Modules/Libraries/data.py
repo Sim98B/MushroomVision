@@ -5,6 +5,8 @@ import os
 import zipfile
 from pathlib import Path
 import requests
+import random
+from PIL import Image
 
 def download_data(source: str,
                   remove_source: bool = True) -> Path:
@@ -59,3 +61,50 @@ def inspect_dir(dir_path: Path):
     """
     for path, dirname, filename in os.walk(dir_path):
         print(f"There are {len(dirname)} directory/ies and {len(filename)} file/s in {path}")
+
+
+def plot_random_images(data_path: str,
+                       target_folder: str,
+                       seed: bool,
+                       seed_num: int = 42,
+                       img_per_classe: int = 3,
+                       img_size: tuple = (224, 224),
+                       plot_size: tuple = (16, 9)):
+
+
+  """
+  Show subplots with a set number of random images per class from a folder.
+
+  Args:
+    data_path (str or Path): path to data directory
+    target_folder (str or Path): path to target folder
+    seed (bool): whether to set a seed for reproducibility
+    seed_num (int): the random state number to pass at set_seed() function
+    img_per class (int > 2): number of images to pick from each class
+    img_size (tuple): tuple of height x width to resize every image
+    plot_size (tuple): matplotlib figsize height x width
+
+  Returns:
+    A subplot img_per_class x number of classes
+  """
+
+  classes = [folder.name for folder in data_path.joinpath(target_folder).glob('*')]
+  fig, axs = plt.subplots(img_per_classe, len(classes), figsize=(16, 9))
+
+  for i, class_name in enumerate(classes):
+    img_folder = data_path.joinpath(target_folder, class_name)
+    images = list(img_folder.glob('*.jpg'))
+    random_images = random.sample(images, img_per_classe)
+
+    for j, image_path in enumerate(random_images):
+      img = Image.open(image_path)
+      img = img.resize(img_size)
+      axs[j, i].imshow(img)
+      axs[j, i].axis('off')
+      #axs[j, i].set_title(f"{j}, {i}")
+      if j == 0:
+        axs[j, i].set_title(class_name.replace("_", " "), weight="bold")
+    
+    plt.suptitle(f"Showing {img_per_classe} images per class", fontsize = 20)
+
+  plt.tight_layout();
