@@ -7,7 +7,47 @@ from pathlib import Path
 from PIL import Image
 import requests
 import random
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
 import zipfile
+
+def dataloader(data_dir: str,
+               transformer: torchvision.transforms = torchvision.transforms.ToTensor(),
+               target_transformer: torchvision.transforms = None,
+               bs: int = 32,
+               shuffle: bool = True,
+               workers: int = os.cpu_count(),
+               memory: bool =True):
+  
+"""
+Create a torch DataLoader via ImageFolder and a list containing class names
+
+Args:
+  data_dir (str or Path): path to a data directory to pass to create the ImageFolder
+  transformer (torchvision.transforms): transformer/s through which the images pass
+  target_transform (torchvision.transforms): transformer for the target
+  bs (int): batch size for DataLoader
+  shuffle (bool): whether to shuffle or not the data
+  workers (int): passed as DataLoader's num_workers
+  memory (bool): whether to pin memory
+
+Returns:
+  A torch DataLoader and a list with classes'name.
+"""
+  
+  data_image_folder = datasets.ImageFolder(root = data_dir, 
+                                           transform = transformer, 
+                                           target_transform = target_transformer)
+  
+  class_names = data_image_folder.classes
+
+  loader = DataLoader(dataset = data_image_folder,
+                      batch_size = bs,
+                      shuffle = shuffle,
+                      num_workers = workers,
+                      pin_memory = memory)
+  
+  return loader, class_names
 
 def download_data(source: str,
                   remove_source: bool = True) -> Path:
