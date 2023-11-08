@@ -1,12 +1,13 @@
 """
 Contains functions to inspect and manipulate data
 """
+import matplolib.pyplot as plt
 import os
-import zipfile
 from pathlib import Path
+from PIL import Image
 import requests
 import random
-from PIL import Image
+import zipfile
 
 def download_data(source: str,
                   remove_source: bool = True) -> Path:
