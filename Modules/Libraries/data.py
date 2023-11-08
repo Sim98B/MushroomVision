@@ -88,6 +88,9 @@ def plot_random_images(data_path: str,
     A subplot img_per_class x number of classes
   """
 
+  if seed:
+    utils.set_seed(seed_num)
+
   classes = [folder.name for folder in data_path.joinpath(target_folder).glob('*')]
   fig, axs = plt.subplots(img_per_classe, len(classes), figsize=(16, 9))
 
@@ -98,13 +101,13 @@ def plot_random_images(data_path: str,
 
     for j, image_path in enumerate(random_images):
       img = Image.open(image_path)
-      img = img.resize(img_size)
+      if img_size:
+        img = img.resize(img_size)
       axs[j, i].imshow(img)
       axs[j, i].axis('off')
-      #axs[j, i].set_title(f"{j}, {i}")
       if j == 0:
         axs[j, i].set_title(class_name.replace("_", " "), weight="bold")
     
-    plt.suptitle(f"Showing {img_per_classe} images per class", fontsize = 20)
+    plt.suptitle(f"Showing {img_per_classe} images per class from {target_folder} folder", fontsize = 20)
 
   plt.tight_layout();
