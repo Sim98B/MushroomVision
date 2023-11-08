@@ -1,7 +1,7 @@
 """
 Contains functions to inspect and manipulate data
 """
-import matplolib.pyplot as plt
+import matplotlib.pyplot as plt
 import os
 from pathlib import Path
 from PIL import Image
