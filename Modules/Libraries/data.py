@@ -19,21 +19,21 @@ def dataloader(data_dir: str,
                workers: int = os.cpu_count(),
                memory: bool =True):
   
-"""
-Create a torch DataLoader via ImageFolder and a list containing class names
+  """
+  Create a torch DataLoader via ImageFolder and a list containing class names
 
-Args:
-  data_dir (str or Path): path to a data directory to pass to create the ImageFolder
-  transformer (torchvision.transforms): transformer/s through which the images pass
-  target_transform (torchvision.transforms): transformer for the target
-  bs (int): batch size for DataLoader
-  shuffle (bool): whether to shuffle or not the data
-  workers (int): passed as DataLoader's num_workers
-  memory (bool): whether to pin memory
+  Args:
+    data_dir (str or Path): path to a data directory to pass to create the ImageFolder
+    transformer (torchvision.transforms): transformer/s through which the images pass
+    target_transform (torchvision.transforms): transformer for the target
+    bs (int): batch size for DataLoader
+    shuffle (bool): whether to shuffle or not the data
+    workers (int): passed as DataLoader's num_workers
+    memory (bool): whether to pin memory
 
-Returns:
-  A torch DataLoader and a list with classes'name.
-"""
+  Returns:
+    A torch DataLoader and a list with classes'name.
+  """
   
   data_image_folder = datasets.ImageFolder(root = data_dir, 
                                            transform = transformer, 
