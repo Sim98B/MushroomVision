@@ -5,8 +5,7 @@ try:
   import torch
   import torchvision
 except:
-  pip install torch
-  pip install torchvision
+  pip install torch torchvision
 
 import matplotlib.pyplot as plt
 import os
