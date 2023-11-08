@@ -66,7 +66,7 @@ def inspect_dir(dir_path: Path):
 
 def plot_random_images(data_path: str,
                        target_folder: str,
-                       seed: bool,
+                       seed: bool = False,
                        seed_num: int = 42,
                        img_per_classe: int = 3,
                        img_size: tuple = (224, 224),
