@@ -6,10 +6,10 @@ These photos are taken from [Macchia Faggeta](https://www.macchiafaggeta.com)'s 
 
 || **Species name** | **Common name** | **Photo** | **Edibility** |
 |:----:|:----------------:|:---------------:|:-------------:|:-------------:|
-|**01**| [Amanita Caesarea](https://wikipedia.org/wiki/Amanita_caesarea) | Cocco | <img src="/Mush_species/01_AmanitaCaesarea.jpg" alt="Cocco" width="250" height="150" /> | Good |
-|**02**| [Amanita Muscaria](https://wikipedia.org/wiki/Amanita_muscaria) | Cocco del monte | <img src="/Mush_species/02_AmanitaMuscaria.jpg" alt="Cocco" width="250" height="150" /> | Toxic |
-|**03**| [Amanita Vaginata](https://wikipedia.org/wiki/Amanita_vaginata) | Amanita| <img src="/Mush_species/03_AmanitaVaginata.jpg" alt="Cocco" width="250" height="150" /> | Not edible |
-|**04**| [Amanita Virosa](https://wikipedia.org/wiki/Amanita_virosa) | Manina | <img src="/Mush_species/04_AmanitaVirosa.jpg" alt="Cocco" width="250" height="150" /> | Deadly |
+|**01**| [Amanita Caesarea](https://wikipedia.org/wiki/Amanita_caesarea) | Cocco | <img src="/Species/01_AmanitaCaesarea.jpg" alt="Cocco" width="250" height="150" /> | Good |
+|**02**| [Amanita Muscaria](https://wikipedia.org/wiki/Amanita_muscaria) | Cocco del monte | <img src="/Species/02_AmanitaMuscaria.jpg" alt="Cocco" width="250" height="150" /> | Toxic |
+|**03**| [Amanita Vaginata](https://wikipedia.org/wiki/Amanita_vaginata) | Amanita| <img src="/Species/03_AmanitaVaginata.jpg" alt="Cocco" width="250" height="150" /> | Not edible |
+|**04**| [Amanita Virosa](https://wikipedia.org/wiki/Amanita_virosa) | Manina | <img src="/Species/04_AmanitaVirosa.jpg" alt="Cocco" width="250" height="150" /> | Deadly |
 |**05**| [Armillariella Mellea](https://wikipedia.org/wiki/Armillaria_mellea) | Famigliola | <img src="/Mush_species/05_ArmillariellaMellea.jpg" alt="Cocco" width="250" height="150" /> | Good |
 |**06**| [Boletus Aereus](https://wikipedia.org/wiki/Boletus_aereus) | Porcino | <img src="/Mush_species/06_BoletusAereus.jpg" alt="Cocco" width="350" height="150" /> | Great |
 |**07**| [Boletus Edulis](https://wikipedia.org/wiki/Boletus_edulis) | Porcino | <img src="/Mush_species/07_BoletusEdilus.jpg" alt="Cocco" width="250" height="150" /> | Great |
