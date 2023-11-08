@@ -92,6 +92,9 @@ def plot_random_images(data_path: str,
   if seed:
     utils.set_seed(seed_num)
 
+  if img_per_classe < 2:
+    raise Exception("img_per_class should be >= 2")
+
   classes = [folder.name for folder in data_path.joinpath(target_folder).glob('*')]
   fig, axs = plt.subplots(img_per_classe, len(classes), figsize=(16, 9))
 
