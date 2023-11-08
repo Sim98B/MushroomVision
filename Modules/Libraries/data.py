@@ -18,7 +18,6 @@ def dataloader(data_dir: str,
                shuffle: bool = True,
                workers: int = os.cpu_count(),
                memory: bool =True):
-  
   """
   Create a torch DataLoader via ImageFolder and a list containing class names
 
@@ -34,7 +33,6 @@ def dataloader(data_dir: str,
   Returns:
     A torch DataLoader and a list with classes'name.
   """
-  
   data_image_folder = datasets.ImageFolder(root = data_dir, 
                                            transform = transformer, 
                                            target_transform = target_transformer)
@@ -47,7 +45,7 @@ def dataloader(data_dir: str,
                       num_workers = workers,
                       pin_memory = memory)
   
-  return loader, class_names
+    return loader, class_names
 
 def download_data(source: str,
                   remove_source: bool = True) -> Path:
