@@ -30,7 +30,7 @@ def dataloader(data_dir: str,
     shuffle (bool): whether to shuffle or not the data
     workers (int): passed as DataLoader's num_workers
     memory (bool): whether to pin memory
-
+  
   Returns:
     A torch DataLoader and a list with classes'name.
   """
