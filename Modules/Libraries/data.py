@@ -40,6 +40,8 @@ def download_data(source: str,
 
   if remove_source:
     os.remove(data_path / target_file)
+
+  data_path = data_path.joinpath(os.listdir(data_path)[0])
   
   return data_path
     
