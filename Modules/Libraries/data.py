@@ -41,6 +41,8 @@ def download_data(source: str,
   if remove_source:
     os.remove(data_path / target_file)
 
+  data_path = data_path.glob("*")
+  
   return data_path
     
 def inspect_dir(dir_path: Path):
