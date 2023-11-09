@@ -6,6 +6,34 @@ import random
 import torch
 import torch.nn as nn
 
+def delta_time(start_time: float,
+               end_time: float):
+  
+  """
+  Print time difference. Useful to track models' training and testing time.
+  [NOTE] You need to import -> 'from timeit import default_timer as timer' to use 'timer()' to track time:
+
+  Args:
+    start_time (float): starting time
+    end_time (float): ending time
+
+  Returns:
+    Time difference formatted in hh:mm:ss
+
+  Example:
+    start_time = timer()
+    ...your_code...
+    end_time = timer()
+
+    delta_time(start_time = strat_time, end_time = end_time)
+  """
+  total_diff = end_time - start_time
+  hours = total_diff // 3600
+  min = hours // 60
+  sec = total_diff % 60
+
+  print(f"Total time: {hours:.0f}:{min:.0f}:{sec:.0f}")
+
 def linear_baseline(input_height: int,
                     input_width: int,
                     color_channels: int,
