@@ -13,7 +13,7 @@ def eval_step(model,
 
   Args:
     model (torch.nn.Module): model to train
-    dataloader (torch.utils.data.DataLoader): a dataloader containing train data
+    dataloader (torch.utils.data.DataLoader): a dataloader containing test data
     loss_function (torch.nn.Module): a loss function used to track model's performance
     metric (str): 'accuracy' or 'f1' -> sklearn.metrics is used
     device (torch.device): 'cpu' or 'cuda', where to train the model
