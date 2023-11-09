@@ -1,10 +1,11 @@
 # Directory Structure
 ```
 Modules/
-├── data/
-│   ├── download_data.py
-│   ├── inspect_dir.py
-│   ├── plot_random_images.py
-├── utils/
-│   ├── set_seed.py
+├── data.py/
+│   ├── download_data
+│   ├── inspect_dir
+│   ├── plot_dataloader_img
+│   ├── plot_random_images
+├── utils.py/
+│   ├── set_seed
 ```
