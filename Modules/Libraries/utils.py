@@ -29,11 +29,11 @@ def delta_time(start_time: float,
   """
   total_diff = end_time - start_time
   hours = total_diff // 3600
-  min = hours // 60
+  min = (total_diff % 3600) // 60
   sec = total_diff % 60
 
   print(f"Total time: {hours:.0f}:{min:.0f}:{sec:.0f}")
-
+                 
 def linear_baseline(input_height: int,
                     input_width: int,
                     color_channels: int,
