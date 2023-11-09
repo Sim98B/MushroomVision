@@ -7,7 +7,8 @@ import torch
 import torch.nn as nn
 
 def delta_time(start_time: float,
-               end_time: float):
+               end_time: float,
+               desc: str = "Total time"):
   
   """
   Print time difference. Useful to track models' training and testing time.
@@ -32,7 +33,7 @@ def delta_time(start_time: float,
   min = (total_diff % 3600) // 60
   sec = total_diff % 60
 
-  print(f"Total time: {hours:.0f}:{min:.0f}:{sec:.0f}")
+  print(f"{desc}: {hours:.0f}:{min:.0f}:{sec:.0f}")
                  
 def linear_baseline(input_height: int,
                     input_width: int,
