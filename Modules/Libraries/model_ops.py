@@ -91,7 +91,7 @@ def train(model: torch.nn.Module,
   progress_bar = tqdm(range(epochs), desc = "Training")
 
   for epoch in range(epochs):
-    train_loss, train_metric = model_ops.train_step(model = model,
+    train_loss, train_metric = train_step(model = model,
                                                     dataloader = train_dataloader,
                                                     loss_function = loss_fn,
                                                     optimizer = optimizer,
@@ -99,7 +99,7 @@ def train(model: torch.nn.Module,
                                                     device = device,
                                                     seed = seed)
     
-    test_loss, test_metric = model_ops.eval_step(model = model,
+    test_loss, test_metric = eval_step(model = model,
                                                  dataloader = test_dataloader,
                                                  loss_function = loss_fn,
                                                  metric = metric,
