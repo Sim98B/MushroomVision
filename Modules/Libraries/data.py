@@ -1,5 +1,5 @@
 """
-Contains functions to inspect and manipulate data
+Tools to inspect and manipulate data
 """
 import matplotlib.pyplot as plt
 import os
@@ -104,6 +104,49 @@ def inspect_dir(dir_path: Path):
     """
     for path, dirname, filename in os.walk(dir_path):
         print(f"There are {len(dirname)} directory/ies and {len(filename)} file/s in {path}")
+
+
+def plot_dataloader_img(dataloader: torch.utils.data.DataLoader,
+                        n_images: int = 3,
+                        classes: list = None,
+                        seed: bool = False,
+                        num_seed: int = 42):
+
+  """
+  Plot images from a dataloader; useful to take a look at transformed images.
+
+  Args:
+    dataloader(torch.utils.data.DataLoader): an iterable containing images
+    n_images (int): how many images to plot
+    classes (list): optional list containing class name to use as title for images
+  
+  Returns:
+    A row of images
+  """
+
+  if seed:
+    utils.set_seed(num_seed)
+
+  iterator = iter(dataloader)
+  imgs, labels = next(iterator)
+
+  rnd_idx = random.sample(range(len(imgs)), n_images)
+
+  fig, axs = plt.subplots(nrows=1, ncols=n_images, figsize=(n_images * 2, 5))
+
+  for i, indice in enumerate(rnd_idx):
+    img = imgs[indice]
+    label = labels[indice]
+        
+    ax = axs[i] if n_images > 1 else axs  # Gestisci il caso in cui n_images sia 1
+    ax.imshow(img.permute(1, 2, 0))
+    ax.axis('off')
+
+    if classes:
+      ax.set_title(f"{classes[label].replace('_', ' ')}")
+
+  plt.tight_layout()  # Organizza gli assi in modo appropriato
+  plt.show()
 
 
 def plot_random_images(data_path: str,
