@@ -1,5 +1,5 @@
 import torch
-from tqdm.auto import tqdm
+from tqdm import tqdm
 from sklearn.metrics import accuracy_score, f1_score
 
 def eval_step(model,
@@ -21,7 +21,6 @@ def eval_step(model,
   Returns:
     Test loss and test matric values
   """
-
   metric_dict = {"accuracy":accuracy_score,
                  "f1":f1_score}
 
