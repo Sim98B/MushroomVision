@@ -30,7 +30,7 @@ def eval_step(model,
   test_loss, test_metric = 0, 0
 
   with torch.inference_mode():
-    for batch, (X, y) in enumerate(tqdm(dataloader, desc = "Evaluating batch: ")):
+    for batch, (X, y) in enumerate(dataloader, desc = "Evaluating batch: "):
       X, y = X.to(device), y.to(device)
       y_pred_logits = model(X)
       loss = loss_function(y_pred_logits, y)
@@ -81,7 +81,7 @@ def train_step(model,
 
   train_loss, train_metric = 0, 0
 
-  for batch, (X, y) in enumerate(tqdm(dataloader, desc = "Training batch: ")):
+  for batch, (X, y) in enumerate(dataloader, desc = "Training batch: "):
     X, y = X.to(device), y.to(device)
     y_pred = model(X)
     loss = loss_function(y_pred, y)
