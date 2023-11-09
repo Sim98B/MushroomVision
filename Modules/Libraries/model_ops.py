@@ -9,6 +9,22 @@ def train_step(model,
                metric: str,
                device: torch.device,
                seed: int = 42):
+  
+  """
+  Performs a single training step on a given model, including loss backward and parameters optimization.
+
+  Args:
+    model (torch.nn.Module): model to train
+    dataloader (torch.utils.data.DataLoader): a dataloader containing train data
+    loss_function (torch.nn.Module): a loss function used to track model's performance
+    optimizer (torch.optim.Optimizer): an optimizer to adjust model's parameters
+    metric (str): 'accuracy' or 'f1' -> sklearn.metrics is used
+    device (torch.device): 'cpu' or 'cuda', where to train the model
+    seed (int): a number for reporducibility
+
+  Returns:
+    Train loss and train matric values
+  """
 
   metric_dict = {"accuracy":accuracy_score,
                  "f1":f1_score}
