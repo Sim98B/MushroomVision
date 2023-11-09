@@ -7,12 +7,14 @@ def train_step(model,
                loss_function: torch.nn.Module,
                optimizer: torch.optim.Optimizer,
                metric: str,
-               device: torch.device):
+               device: torch.device,
+               seed: int = 42):
 
   metric_dict = {"accuracy":accuracy_score,
                  "f1":f1_score}
 
-  utils.set_seed()
+  torch.manual_seed(seed)
+  torch.cuda.manual_seed(seed)
 
   model.to(device)
   model.train()
