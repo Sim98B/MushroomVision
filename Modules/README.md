@@ -1,6 +1,6 @@
 # Directory Structure
 ```
-Modules/
+Libraries/
 ├── data.py/
 │   ├── download_data
 │   ├── inspect_dir
