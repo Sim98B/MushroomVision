@@ -1,5 +1,5 @@
 # Directory Structure
-```
+
 Libraries/
 ├── [data.py](https://github.com/Sim98B/ShroomVision/blob/main/Modules/Libraries/data.py)/
 │   ├── download_data
@@ -15,4 +15,4 @@ Libraries/
 │   ├── delta_time
 │   ├── linear_baseline
 │   ├── set_seed
-```
+
