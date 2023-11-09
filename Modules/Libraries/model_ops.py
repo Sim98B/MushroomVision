@@ -46,6 +46,91 @@ def eval_step(model,
 
   return test_loss, test_metric
 
+def train(model: torch.nn.Module, 
+          train_dataloader: torch.utils.data.DataLoader, 
+          test_dataloader: torch.utils.data.DataLoader,
+          loss_fn: torch.nn.Module, 
+          optimizer: torch.optim.Optimizer,
+          metric: str,
+          epochs: int,
+          device: torch.device,
+          verbose: int = 1,
+          seed: int = 42):
+  
+  """
+  Trains and evaluates a model for a given number of epochs.
+
+  Args:
+    model: torch.nn.Module, 
+    train_dataloader (torch.utils.data.DataLoader): a dataloader containing train data 
+    test_dataloader (torch.utils.data.DataLoader): a dataloader containing test data
+    loss_function (torch.nn.Module): a loss function used to track model's performance in both training and testing steps
+    optimizer (torch.optim.Optimizer): an optimizer to adjust model's parameters
+    metric (str): 'accuracy' or 'f1' -> sklearn.metrics is used
+    epochs (int): number of steps, training and evaluation, to be performed
+    device (torch.device): 'cpu' or 'cuda', where to train the model
+    verbose (int): printing verbosity: '1' -> update progress bar's postfix; '2' -> print losses and metrics for each epoch
+    seed (int): a number for reporducibility
+
+  Returns:
+    A dictionary of training and testing loss as well as training and
+    testing metrics. Each metric has a value in a list for 
+    each epoch.
+    In the form: {train_loss: [...],
+                  train_metric: [...],
+                  test_loss: [...],
+                  test_metric: [...]}
+  """
+
+  results = {"train_loss": [],
+             "train_metric": [],
+             "test_loss": [],
+             "test_metric": []
+             }
+  
+  progress_bar = tqdm(range(epochs), desc = "Training")
+
+  for epoch in range(epochs):
+    train_loss, train_metric = model_ops.train_step(model = model,
+                                                    dataloader = train_dataloader,
+                                                    loss_function = loss_fn,
+                                                    optimizer = optimizer,
+                                                    metric = metric,
+                                                    device = device,
+                                                    seed = seed)
+    
+    test_loss, test_metric = model_ops.eval_step(model = model,
+                                                 dataloader = test_dataloader,
+                                                 loss_function = loss_fn,
+                                                 metric = metric,
+                                                 device = device)
+    
+    results["train_loss"].append(train_loss)
+    results["train_metric"].append(train_metric)
+    results["test_loss"].append(test_loss)
+    results["test_metric"].append(test_metric)
+    
+    if verbose == 1:
+      if metric == "accuracy":
+        progress_bar.set_postfix({"Train loss": f"{train_loss:.3f}",
+                                  f"Train {metric.capitalize()}": f"{train_metric:.2%}",
+                                  "Test loss": f"{test_loss:.3f}",
+                                  f"Test {metric.capitalize()}": f"{test_metric:.2%}"})
+      else:
+        progress_bar.set_postfix({"Train loss": f"{train_loss:.3f}",
+                                  f"Train {metric.capitalize()}": f"{train_metric:.2f}",
+                                  "Test loss": f"{test_loss:.3f}",
+                                  f"Test {metric.capitalize()}": f"{test_metric:.2f}"})
+    else:
+      if metric == "accuracy":
+        print(f"Epoch {epoch}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2%} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2%}")
+      else:
+        print(f"Epoch {epoch}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2f} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2f}")
+    progress_bar.update(1)
+  progress_bar.close()
+
+  return results
+
 def train_step(model,
                dataloader: torch.utils.data.DataLoader,
                loss_function: torch.nn.Module,
