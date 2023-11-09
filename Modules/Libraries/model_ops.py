@@ -1,5 +1,5 @@
 import torch
-from tqdm import tqdm
+from tqdm.auto import tqdm
 from sklearn.metrics import accuracy_score, f1_score
 
 def eval_step(model,
