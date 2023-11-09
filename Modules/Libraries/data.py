@@ -151,10 +151,10 @@ def plot_dataloader_img(dataloader: torch.utils.data.DataLoader,
 
 def plot_random_images(data_path: str,
                        target_folder: str,
-                       img_size: tuple,
                        seed: bool = False,
                        seed_num: int = 42,
                        img_per_classe: int = 3,
+                       img_size: tuple = (224, 224),
                        plot_size: tuple = (16, 9)):
 
 
