@@ -2,6 +2,7 @@
 Utility tools
 """
 
+import matplotlib.pyplot as plt
 import random
 import torch
 import torch.nn as nn
@@ -79,6 +80,43 @@ def linear_baseline(input_height: int,
 
   modello = Baseline(input_height, input_width, output_shape, num_layers, num_neurons)
   return modello
+
+def plot_model_performance(results_dict: dict,
+                           fig_size: tuple = (15,5),
+                           metric_name: str = "Metric",
+                           title: str = " "):
+  
+  """
+  Makes subplots of both loss and a metric comapring training and validation
+
+  Args:
+    results_dict (dict): a dict in the form {train_loss: [...],
+                                             train_metric: [...],
+                                             test_loss: [...],
+                                             test_metric: [...]}
+    metric_name (str): metric name to display as y axis' label
+
+  Returns:
+    Subplots of lineplot to comapre performance on train and validation set
+  """
+
+  ax, fig = plt.subplots(figsize = fig_size)
+
+  ax1 = plt.subplot(1, 2, 1)
+  plt.plot(results_dict["train_loss"], label = "Train")
+  plt.plot(results_dict["test_loss"], label = "Validation")
+  plt.xlabel("Epochs", weight = "bold")
+  plt.title("Loss", weight = "bold")
+  plt.legend(frameon = False)
+
+  ax2 = plt.subplot(1, 2, 2)
+  plt.plot(results_dict["train_metric"], label = "Train")
+  plt.plot(results_dict["test_metric"], label = "Validation")
+  plt.xlabel("Epochs", weight = "bold")
+  plt.title(f"{metric_name}", weight = "bold")
+  plt.legend(frameon = False)
+
+  plt.suptitle(f"{title}", weight = "bold", fontsize = 20)
 
 def set_seed(seed: int = 42):
     """
