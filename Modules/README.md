@@ -1,7 +1,7 @@
 # Directory Structure
 ```
 Libraries/
-├── ![data.py](Modules/Libraries/data.py)/
+├── [data.py](https://github.com/Sim98B/ShroomVision/blob/main/Modules/Libraries/data.py)/
 │   ├── download_data
 │   ├── inspect_dir
 │   ├── plot_dataloader_img
