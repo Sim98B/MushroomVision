@@ -93,7 +93,7 @@ def train(model: torch.nn.Module,
   for epoch in range(epochs):
     train_loss, train_metric = train_step(model = model,
                                                     dataloader = train_dataloader,
-                                                    loss_function = loss_fn,
+                                                    loss_function = loss_function,
                                                     optimizer = optimizer,
                                                     metric = metric,
                                                     device = device,
@@ -101,7 +101,7 @@ def train(model: torch.nn.Module,
     
     test_loss, test_metric = eval_step(model = model,
                                                  dataloader = test_dataloader,
-                                                 loss_function = loss_fn,
+                                                 loss_function = loss_function,
                                                  metric = metric,
                                                  device = device)
     
