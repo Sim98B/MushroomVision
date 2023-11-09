@@ -33,7 +33,7 @@ def delta_time(start_time: float,
   min = (total_diff % 3600) // 60
   sec = total_diff % 60
 
-  print(f"{desc}: {hours:.0f}:{min:.0f}:{sec:.0f}")
+  print(f"{desc}: {hours:02.0f}:{min:02.0f}:{sec:02.0f}")
                  
 def linear_baseline(input_height: int,
                     input_width: int,
