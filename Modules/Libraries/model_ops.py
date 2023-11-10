@@ -46,6 +46,32 @@ def eval_step(model,
 
   return test_loss, test_metric
 
+def make_predictions(model: nn.Module,
+                     test_dataloader: torch.utils.data.DataLoader,
+                     device: torch.device = "cpu"):
+  """
+  Makes predictions using a torch.nn.Module trained model
+
+  Args:
+    model (nn.Module): a trained model
+    test_dataloader (torch.utils.data.DataLoader): dataloader containing data to make predictions
+
+  Returns:
+    A list containing predictions
+  """
+  predictions = list()
+
+  model.to(device)
+  model.eval()
+
+  with torch.inference_mode():
+    for batch, (X, y) in enumerate(test_dataloader):
+      X, y = X.to(device), y.to(device)
+      pred_logits = model(X)
+      pred_labels = torch.argmax(pred_logits, dim = 1)
+      predictions.extend(pred_labels.tolist())
+
+
 def train(model: torch.nn.Module, 
           train_dataloader: torch.utils.data.DataLoader, 
           test_dataloader: torch.utils.data.DataLoader,
