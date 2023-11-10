@@ -60,10 +60,12 @@ def make_predictions(model: torch.nn.Module,
     device (torch.device): where to run the model to make predictions
 
   Returns:
-    A couple lists containing predictions and true labels respectiuvely
+    A dict cotaining, in this order, predictions and true labels
   """
   predictions = list()
   true_labels = list()
+  pred_dict = {"predictions":[],
+               "true_labels":[]}
 
   model.to(device)
   model.eval()
@@ -76,8 +78,10 @@ def make_predictions(model: torch.nn.Module,
       predictions.extend(pred_labels.tolist())
       true_labels.extend(y.tolist())
 
-  return predictions, true_labels
+  pred_dict["predictions"].append(predictions)
+  pred_dict["true_labels"].append(true_labels)
 
+  return pred_dict
 
 def train(model: torch.nn.Module, 
           train_dataloader: torch.utils.data.DataLoader, 
