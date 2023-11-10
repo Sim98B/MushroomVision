@@ -6,7 +6,7 @@ Libraries/
 │   ├── inspect_dir
 │   ├── plot_dataloader_img
 │   └── plot_random_images
-├── model.py/
+├── models.py/
 │   └── TinyVGG
 ├── model_ops.py/
 │   ├── eval_step
