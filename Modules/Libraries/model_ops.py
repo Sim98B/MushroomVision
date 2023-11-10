@@ -1,9 +1,8 @@
 import torch
-from torch import nn as nn
 from tqdm.auto import tqdm
 from sklearn.metrics import accuracy_score, f1_score
 
-def eval_step(model,
+def eval_step(model: torch.nn.Module,
               dataloader: torch.utils.data.DataLoader,
               loss_function: torch.nn.Module,
               metric: str,
@@ -47,7 +46,7 @@ def eval_step(model,
 
   return test_loss, test_metric
 
-def make_predictions(model: nn.Module,
+def make_predictions(model: torch.nn.Module,
                      test_dataloader: torch.utils.data.DataLoader,
                      device: torch.device = "cpu"):
   """
@@ -71,6 +70,8 @@ def make_predictions(model: nn.Module,
       pred_logits = model(X)
       pred_labels = torch.argmax(pred_logits, dim = 1)
       predictions.extend(pred_labels.tolist())
+
+  return predictions
 
 
 def train(model: torch.nn.Module, 
