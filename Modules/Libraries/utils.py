@@ -83,6 +83,9 @@ def linear_baseline(input_height: int,
   modello = Baseline(input_height, input_width, output_shape, num_layers, num_neurons)
   return modello
 
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+
 def plot_confusion_matrix(y_true: list,
                           y_pred: list,
                           norm: str = None,
@@ -98,7 +101,6 @@ def plot_confusion_matrix(y_true: list,
     y_true (list): a list containing real labels
     y_pred (list): a list containing predicted labels
     norm (str): ['true', 'pred', 'all'] whether to normalize or not the data
-    title (str): a title string
     class_names (list): a list containing classes' names to be used for ticks
     color_map (str, matplotlib.pyplot.cmap): colormap for the confusion matrix
     figsize (int): a height and width of matrix
@@ -111,9 +113,9 @@ def plot_confusion_matrix(y_true: list,
   cm = confusion_matrix(y_true = y_true, y_pred = y_pred, normalize = norm)
 
   if norm != None:
-    hm = sns.heatmap(cm, annot = True, cmap = color_map, cbar = False, fmt = ".2%")
+    hm = sns.heatmap(cm, annot = True, robust = True, annot_kws = {"weight":"bold"}, cmap = color_map, cbar = False, fmt = ".2%")
   else:
-    hm = sns.heatmap(cm, annot = True, cmap = color_map, cbar = False)
+    hm = sns.heatmap(cm, annot = True, robust = True, annot_kws = {"weight":"bold"}, cmap = color_map, cbar = False)
 
   if class_names:
     hm.set_xticklabels(class_names)
