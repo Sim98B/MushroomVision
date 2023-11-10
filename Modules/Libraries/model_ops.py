@@ -50,16 +50,20 @@ def make_predictions(model: torch.nn.Module,
                      test_dataloader: torch.utils.data.DataLoader,
                      device: torch.device = "cpu"):
   """
-  Makes predictions using a torch.nn.Module trained model
+  Makes predictions using a torch.nn.Module trained model.
+  Create also a list containing true labels to handle with dataloader with the 'shuffle' parameter equals to True 
+  and comapre predictions to true labels.
 
   Args:
     model (nn.Module): a trained model
     test_dataloader (torch.utils.data.DataLoader): dataloader containing data to make predictions
+    device (torch.device): where to run the model to make predictions
 
   Returns:
-    A list containing predictions
+    A couple lists containing predictions and true labels respectiuvely
   """
   predictions = list()
+  true_labels = list()
 
   model.to(device)
   model.eval()
@@ -70,8 +74,9 @@ def make_predictions(model: torch.nn.Module,
       pred_logits = model(X)
       pred_labels = torch.argmax(pred_logits, dim = 1)
       predictions.extend(pred_labels.tolist())
+      true_labels.extend(y.tolist())
 
-  return predictions
+  return predictions, true_labels
 
 
 def train(model: torch.nn.Module, 
