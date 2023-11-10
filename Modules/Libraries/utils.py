@@ -98,6 +98,7 @@ def plot_confusion_matrix(y_true: list,
     y_true (list): a list containing real labels
     y_pred (list): a list containing predicted labels
     norm (str): ['true', 'pred', 'all'] whether to normalize or not the data
+    title (str): a title string
     class_names (list): a list containing classes' names to be used for ticks
     color_map (str, matplotlib.pyplot.cmap): colormap for the confusion matrix
     figsize (int): a height and width of matrix
@@ -118,6 +119,8 @@ def plot_confusion_matrix(y_true: list,
     hm.set_xticklabels(class_names)
     hm.set_yticklabels(class_names)
 
+  hm.set_xlabel("Predicted", weight = "bold")
+  hm.set_ylabel("True", weight = "bold")
   hm.set_title(title, fontsize = 20, weight = "bold")
 
   plt.tight_layout();
