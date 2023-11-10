@@ -14,7 +14,7 @@ Libraries/
 └── utils.py/
     ├── delta_time
     ├── linear_baseline
-    ├── plot_confusion_matrix *
+    ├── plot_confusion_matrix
     ├── plot_model_performance
     └── set_seed
 ```
