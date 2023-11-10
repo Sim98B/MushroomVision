@@ -18,7 +18,7 @@ def dataloader(data_dir: str,
                target_transformer: torchvision.transforms = None,
                bs: int = 32,
                shuffle: bool = True,
-               workers: int = 1,
+               workers: int = os.cpu_count(),
                memory: bool =True):
   
   """
