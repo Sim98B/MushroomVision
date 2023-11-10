@@ -35,7 +35,7 @@ def eval_step(model,
       y_pred_logits = model(X)
       loss = loss_function(y_pred_logits, y)
       test_loss += loss.item() 
-      y_pred_labels = torch.argmax(torch.softmax(y_pred_logits, dim=1), dim=1)
+      y_pred_labels = y_pred_logits.argmax(dim=1)
       if metric == "f1" and len(np.unique(y)):
         test_metric += metric_dict[metric](y.detach().numpy(), y_pred_labels.detach().numpy(), average = "weighted")
       else:
