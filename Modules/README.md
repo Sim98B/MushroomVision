@@ -8,7 +8,7 @@ Libraries/
 │   └── plot_random_images
 ├── model_ops.py/
 │   ├── eval_step
-│   ├── make_predictions *
+│   ├── make_predictions
 │   ├── train
 │   └── train_step
 └── utils.py/
