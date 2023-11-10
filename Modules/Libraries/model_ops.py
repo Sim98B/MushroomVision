@@ -1,5 +1,5 @@
 import torch
-from torch import nn
+from torch import nn as nn
 from tqdm.auto import tqdm
 from sklearn.metrics import accuracy_score, f1_score
 
