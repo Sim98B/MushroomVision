@@ -78,8 +78,8 @@ def make_predictions(model: torch.nn.Module,
       predictions.extend(pred_labels.tolist())
       true_labels.extend(y.tolist())
 
-  pred_dict["predictions"].append(predictions)
-  pred_dict["true_labels"].append(true_labels)
+  pred_dict["predictions"] = predictions
+  pred_dict["true_labels"] = true_labels
 
   return pred_dict
 
