@@ -4,6 +4,8 @@ Utility tools
 
 import matplotlib.pyplot as plt
 import random
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
 import torch
 import torch.nn as nn
 
@@ -80,6 +82,45 @@ def linear_baseline(input_height: int,
 
   modello = Baseline(input_height, input_width, output_shape, num_layers, num_neurons)
   return modello
+
+def plot_confusion_matrix(y_true: list,
+                          y_pred: list,
+                          norm: str = None,
+                          title: str = "Confusion Matrix",
+                          class_names: list = None,
+                          color_map: str = "viridis",
+                          figsize: int = 7,):
+  
+  """
+  Plot a confusion matrix to evaluate classifiers' performance.
+
+  Args:
+    y_true (list): a list containing real labels
+    y_pred (list): a list containing predicted labels
+    norm (str): ['true', 'pred', 'all'] whether to normalize or not the data
+    class_names (list): a list containing classes' names to be used for ticks
+    color_map (str, matplotlib.pyplot.cmap): colormap for the confusion matrix
+    figsize (int): a height and width of matrix
+
+  Returns:
+    A squared heatmap containg confusion matrix data
+  """
+
+  fig = plt.figure(figsize = (figsize, figsize))
+  cm = confusion_matrix(y_true = y_true, y_pred = y_pred, normalize = norm)
+
+  if norm != None:
+    hm = sns.heatmap(cm, annot = True, cmap = color_map, cbar = False, fmt = ".2%")
+  else:
+    hm = sns.heatmap(cm, annot = True, cmap = color_map, cbar = False)
+
+  if class_names:
+    hm.set_xticklabels(class_names)
+    hm.set_yticklabels(class_names)
+
+  hm.set_title(title, fontsize = 20, weight = "bold")
+
+  plt.tight_layout();
 
 def plot_model_performance(results_dict: dict,
                            fig_size: tuple = (15,5),
