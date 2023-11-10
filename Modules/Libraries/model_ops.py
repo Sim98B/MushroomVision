@@ -123,9 +123,9 @@ def train(model: torch.nn.Module,
                                   f"Test {metric.capitalize()}": f"{test_metric:.2f}"})
     else:
       if metric == "accuracy":
-        print(f"Epoch {epoch}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2%} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2%}")
+        print(f"Epoch {epoch:02.0f}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2%} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2%}")
       else:
-        print(f"Epoch {epoch}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2f} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2f}")
+        print(f"Epoch {epoch:02.0f}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2f} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2f}")
     progress_bar.update(1)
   progress_bar.close()
 
