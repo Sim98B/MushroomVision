@@ -11,8 +11,6 @@ Libraries/
 │   ├── make_predictions
 │   ├── train
 │   └── train_step
-├── models.py/
-│   └── TinyVGG
 └── utils.py/
     ├── delta_time
     ├── linear_baseline
