@@ -10,6 +10,7 @@ import seaborn as sns
 from sklearn.metrics import confusion_matrix
 import torch
 import torch.nn as nn
+from torch.utils.tensorboard import SummaryWriter
 
 def create_writer(experiment_name: str, 
                   model_name: str, 
