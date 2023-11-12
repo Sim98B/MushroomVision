@@ -154,8 +154,8 @@ def train(model: torch.nn.Module,
                          tag_scalar_dict={"train_loss": train_loss,
                                           "test_loss": test_loss},global_step=epoch)
       writer.add_scalars(main_tag=f"{metric}", 
-                         tag_scalar_dict={"train_metric": train_acc,
-                                          "test_metric": test_acc},global_step=epoch)
+                         tag_scalar_dict={"train_metric": train_metric,
+                                          "test_metric": test_metric},global_step=epoch)
     
     if verbose == 1:
       if metric == "accuracy":
