@@ -91,6 +91,7 @@ def train(model: torch.nn.Module,
           metric: str,
           epochs: int,
           device: torch.device,
+          writer: torch.utils.tensorboard.writer.SummaryWriter,
           verbose: int = 1,
           seed: int = 42):
   
@@ -106,6 +107,7 @@ def train(model: torch.nn.Module,
     metric (str): 'accuracy' or 'f1' -> sklearn.metrics is used
     epochs (int): number of steps, training and evaluation, to be performed
     device (torch.device): 'cpu' or 'cuda', where to train the model
+    writer (SummaryWriter): A SummaryWriter() instance to log model results to.
     verbose (int): printing verbosity: '1' -> update progress bar's postfix; '2' -> print losses and metrics for each epoch
     seed (int): a number for reporducibility
 
@@ -129,23 +131,31 @@ def train(model: torch.nn.Module,
 
   for epoch in range(epochs):
     train_loss, train_metric = train_step(model = model,
-                                                    dataloader = train_dataloader,
-                                                    loss_function = loss_function,
-                                                    optimizer = optimizer,
-                                                    metric = metric,
-                                                    device = device,
-                                                    seed = seed)
+                                          dataloader = train_dataloader,
+                                          loss_function = loss_function,
+                                          optimizer = optimizer,
+                                          metric = metric,
+                                          device = device,
+                                          seed = seed)
     
     test_loss, test_metric = eval_step(model = model,
-                                                 dataloader = test_dataloader,
-                                                 loss_function = loss_function,
-                                                 metric = metric,
-                                                 device = device)
+                                       dataloader = test_dataloader,
+                                       loss_function = loss_function,
+                                       metric = metric,
+                                       device = device)
     
     results["train_loss"].append(train_loss)
     results["train_metric"].append(train_metric)
     results["test_loss"].append(test_loss)
     results["test_metric"].append(test_metric)
+
+    if writer:
+      writer.add_scalars(main_tag="Loss", 
+                         tag_scalar_dict={"train_loss": train_loss,
+                                          "test_loss": test_loss},global_step=epoch)
+      writer.add_scalars(main_tag=f"{metric}", 
+                         tag_scalar_dict={"train_metric": train_acc,
+                                          "test_metric": test_acc},global_step=epoch)
     
     if verbose == 1:
       if metric == "accuracy":
@@ -165,6 +175,10 @@ def train(model: torch.nn.Module,
         print(f"Epoch {epoch+1:02.0f}: Train Loss: {train_loss:.3f} | Train {metric.capitalize()}: {train_metric:.2f} | Test Loss: {test_loss:.3f} | Test {metric.capitalize()}: {test_metric:.2f}")
     progress_bar.update(1)
   progress_bar.close()
+
+  X, y = next(iter(train_dataloader))
+  if writer:
+    writer.add_graph(model=model, input_to_model=torch.randn(X.shape).to(device))
 
   return results
 
