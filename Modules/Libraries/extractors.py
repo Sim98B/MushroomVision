@@ -1,3 +1,5 @@
+import torch
+import torchvision
 from torchvision.models import alexnet, vgg16, densenet121, resnet50
 from torchvision.models import AlexNet_Weights, VGG16_Weights, DenseNet121_Weights, ResNet50_Weights
 
