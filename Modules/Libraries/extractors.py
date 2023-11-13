@@ -32,7 +32,7 @@ def create_alexnet(output_shape: int):
 
   return model, model_transformer
 
-def create_densenet(output_shape: int):
+def create_densenet121(output_shape: int):
 
   """
   Creates an DenseNet121 as a feature extractor setting all parameters as not trainable 
@@ -60,7 +60,7 @@ def create_densenet(output_shape: int):
 
   return model, model_transformer
 
-def create_resnet(output_shape: int):
+def create_resnet50(output_shape: int):
 
   """
   Creates an ResNet50 as a feature extractor setting all parameters as not trainable 
@@ -88,7 +88,7 @@ def create_resnet(output_shape: int):
 
   return model, model_transformer
 
-def create_vgg(output_shape: int):
+def create_vgg16(output_shape: int):
 
   """
   Creates an VGG16 as a feature extractor setting all parameters as not trainable 
