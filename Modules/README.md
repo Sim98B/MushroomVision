@@ -22,5 +22,6 @@ Libraries/
     ├── linear_baseline
     ├── plot_confusion_matrix
     ├── plot_model_performance
+    ├── save_model
     └── set_seed
 ```
