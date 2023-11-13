@@ -14,7 +14,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 def create_writer(experiment_name: str, 
                   model_name: str, 
-                  extra: str=None) -> torch.utils.tensorboard.writer.SummaryWriter():
+                  extra: str=None):
 
     """Creates a torch.utils.tensorboard.writer.SummaryWriter() instance saving to a specific log_dir.
 
