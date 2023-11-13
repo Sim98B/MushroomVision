@@ -91,7 +91,7 @@ def train(model: torch.nn.Module,
           metric: str,
           epochs: int,
           device: torch.device,
-          writer: torch.utils.tensorboard.writer.SummaryWriter = None,
+          writer: torch.utils = None,
           verbose: int = 1,
           seed: int = 42):
   
