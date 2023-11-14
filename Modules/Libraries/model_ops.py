@@ -2,6 +2,7 @@ from pathlib import Path
 from PIL import Image
 from timeit import default_timer as timer 
 import torch
+from torch import nn
 import torchvision
 from torchvision import transforms
 from tqdm.auto import tqdm
