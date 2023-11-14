@@ -8,9 +8,12 @@ Libraries/
 │   └── plot_random_images
 ├── extractor.py/
 │   ├── create_alexnet
-│   ├── create_densenet
-│   ├── create_resnet
-│   └── create_vgg
+│   ├── create_densenet121
+│   ├── create_densenet161
+│   ├── create_densenet169
+│   ├── create_densenet201
+│   ├── create_resnet50
+│   └── create_vgg16
 ├── model_ops.py/
 │   ├── eval_step
 │   ├── make_predictions
