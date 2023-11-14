@@ -12,7 +12,7 @@ These photos are taken from [Macchia Faggeta](https://www.macchiafaggeta.com)'s 
 |**04**| [Amanita Virosa](https://wikipedia.org/wiki/Amanita_virosa) | Manina | <img src="/Species/04_AmanitaVirosa.jpg" alt="Cocco" width="250" height="150" /> | Deadly |
 |**05**| [Armillariella Mellea](https://wikipedia.org/wiki/Armillaria_mellea) | Famigliola | <img src="/Species/05_ArmillariellaMellea.jpg" alt="Cocco" width="250" height="150" /> | Good |
 |**06**| [Boletus Aereus](https://wikipedia.org/wiki/Boletus_aereus) | Porcino | <img src="/Species/06_BoletusAereus.jpg" alt="Cocco" width="350" height="150" /> | Great |
-|**07**| [Boletus Edulis](https://wikipedia.org/wiki/Boletus_edulis) | Porcino | <img src="/Species/07_BoletusEdilus.jpg" alt="Cocco" width="250" height="150" /> | Great |
+|**07**| [Boletus Edulis](https://wikipedia.org/wiki/Boletus_edulis) | Porcino | <img src="/Species/07_BoletusEdulis.jpg" alt="Cocco" width="250" height="150" /> | Great |
 |**08**| [Boletus Erythropus](https://it.wikipedia.org/wiki/Neoboletus_erythropus) | Cappella Malefica | <img src="/Species/08_BoletusErythropus.jpg" alt="Cocco" width="250" height="150" /> | Toxic when raw |
 |**09**| [Boletus Pinicola](https://wikipedia.org/wiki/Boletus_pinophilus) | Porcino | <img src="/Species/09_BoletusPinicola.jpg" alt="Cocco" width="250" height="150" /> | Great |
 |**10**| [Boletus Reticulatus](https://wikipedia.org/wiki/Boletus_aestivalis) | Biancarello | <img src="/Species/10_BoletusReticulatus.jpg" alt="Cocco" width="250" height="150" /> | Great |
