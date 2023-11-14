@@ -5,6 +5,7 @@ Utility tools
 from datetime import datetime
 import matplotlib.pyplot as plt
 import os
+from pathlib import Path
 import random
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
@@ -113,8 +114,28 @@ def linear_baseline(input_height: int,
   modello = Baseline(input_height, input_width, output_shape, num_layers, num_neurons)
   return modello
 
-import seaborn as sns
-from sklearn.metrics import confusion_matrix
+def load_model(model: nn.Module,
+               weights_path: str):
+  
+  """
+  Loads weights of a pretrained model into a blank model with same architecture
+
+  Args:
+    model (nn.Module): a model in which to load weights
+    weights_path (str): path to model's weights (should be string, not 
+
+  Returns:
+    Model with new parameters
+  """
+
+  print("[INFO] Loading weights into model...")
+
+  model.load_state_dict(torch.load(f = Path(weights_path),
+                                    map_location=torch.device('cpu')))
+  
+  print("<All keys matched successfully>")
+  
+  return model
 
 def plot_confusion_matrix(y_true: list,
                           y_pred: list,
