@@ -1,4 +1,9 @@
+from pathlib import Path
+from PIL import Image
+from timeit import default_timer as timer 
 import torch
+import torchvision
+from torchvision import transforms
 from tqdm.auto import tqdm
 from sklearn.metrics import accuracy_score, f1_score
 
@@ -82,6 +87,73 @@ def make_predictions(model: torch.nn.Module,
   pred_dict["true_labels"] = true_labels
 
   return pred_dict
+
+def pred_and_track(model: nn.Module,
+                   path_list: list,
+                   transform: torchvision.transforms,
+                   class_names: list,
+                   device: str = "cuda" if torch.cuda.is_available() else "cpu"):
+  
+  """
+  Makes predictions on a list of path and time them.
+
+  Args:
+    model (nn.Model): a model to use to make predictions
+    path_list (list of str): list of path: last parebnt folder name before image should be the name of the class
+    transform (torchvision.transforms): transformation to be applied to images
+    class_names (list): list containing true labels
+    device (str): 'cuda' or 'cpu'
+
+  Returns:
+    A list of dict in the form: [{'image_path': path_list[0],
+                                   'class_name': 'real_label',
+                                   'pred_prob': probability,
+                                   'pred_class': 'predicted_label',
+                                   'time_for_pred': time,
+                                   'correct': boolean},
+                                   ...
+                                   {'image_path': path_list[n],
+                                   'class_name': 'real_label',
+                                   'pred_prob': probability,
+                                   'pred_class': 'predicted_label',
+                                   'time_for_pred': time,
+                                   'correct': boolean}]
+  """
+
+  pred_list = []
+
+  for path in tqdm(path_list, desc = "Predicting"):
+    pred_dict = {}
+
+    pred_dict["image_path"] = path
+    class_name = path.parent.stem
+    pred_dict["class_name"] = class_name
+
+    start_time = timer()
+
+    img = Image.open(path)
+    transformed_img = transform(img).unsqueeze(0).to(device)
+
+    model.to(device)
+    model.eval()
+        
+    with torch.inference_mode():
+      pred_logit = model(transformed_img)
+      pred_prob = torch.softmax(pred_logit, dim=1)
+      pred_label = torch.argmax(pred_prob, dim=1)
+      pred_class = class_names[pred_label.cpu()]
+
+      pred_dict["pred_prob"] = round(pred_prob.unsqueeze(0).max().cpu().item(), 4)
+      pred_dict["pred_class"] = pred_class
+
+      end_time = timer()
+      pred_dict["time_for_pred"] = round(end_time-start_time, 4)
+
+    pred_dict["correct"] = class_name == pred_class
+
+    pred_list.append(pred_dict)
+    
+  return pred_list
 
 def train(model: torch.nn.Module, 
           train_dataloader: torch.utils.data.DataLoader, 
