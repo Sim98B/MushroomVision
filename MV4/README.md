@@ -29,3 +29,7 @@ The 161 form ouperformed the others as shown in the confusion matrices below.
 
 <img src="Confusion_matrices/Deense161MV4_validation.png" alt="Validation CM" width="500" height="500" /> <img src="Confusion_matrices/Deense161MV4_test.png" alt="Test CM" width="500" height="500" />
 
+The main goal was to minimize the classifications of poisonous mushrooms as edible, those that could potentially bring the most harm to potential users. In the validation set, no such errors are made while in the test set, probably due to the imbalance in the classes, misclassifications in this direction are present.
+
+Despite this, the model offers very accurate performance as well as very high confidence levels on its predictions as shown by this little preview.
+
