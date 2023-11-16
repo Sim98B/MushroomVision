@@ -26,5 +26,6 @@ The DenseNet121 performed better so all variants of this architecture available 
 4. DenseNet201
 
 The 161 form ouperformed the others as shown in the confusion matrices below.
+
 <img src="Confusion_matrices/Deense161MV4_validation.png" alt="Cocco" width="300" height="300" />
 
