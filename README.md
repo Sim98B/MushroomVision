@@ -3,6 +3,6 @@
 
 This project was born from the combination of passion, technical skills and the need to have a tool that could help those who, like me, happened to be passionate about mushroom picking in the fall season.
 
-The first project is [Mushroom Vision 4](MV4/README.md) which classifies 4 species, 2 poisonous and 2 potentially edible respectively 2 amanites, [muscaria](Species/) and [vaginata], and 2 boletus, edulis and erythropus with excellent results.
+The first project is [Mushroom Vision 4](MV4/README.md) which classifies 4 species, 2 poisonous and 2 potentially edible respectively 2 amanites, [muscaria](Species/02_AmanitaMuscaria.jpg) and [vaginata](Species/03_AmanitaVaginata.jpg), and 2 boletus, [edulis](Species/07_BoletusEdulis) and [erythropus](Species/08_BoletusErythropus) with excellent results.
 
 The next version will be able to work with 10 different species, Mushroom Vision 10.
