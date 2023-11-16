@@ -4,7 +4,7 @@ This first project has the ambitious goal of building a deep learning model capa
 
 The [Mushroom Vision 4 app](https://huggingface.co/spaces/simo98/MushroomVision4), currently running on HuggingFace, uses a DenseNet161 architecture to classify mushroom images into 4 classes.
 
-The table below shows the species considered in this study.
+The table below shows the species considered in this study (you can try these images by dragging and dropping them into the app).
 
 || **Species name** | **Common name** | **Photo** | **Edibility** |
 |:----:|:----------------:|:---------------:|:-------------:|:-------------:|
