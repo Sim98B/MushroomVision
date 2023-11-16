@@ -1,2 +1,2 @@
 # Mushroom Vision 4 🍄
-Questo primo progetto ha l'ambizioso obiettivo di realizzare un modello di deep learning in grado di classificare immagini di funghi nella loro specie, fornendo informazioni sull'edilità o tossicità di ogni specie riconosciuta
+This first project has the ambitious goal of building a deep learning model capable of classifying images of fungi into their species, providing information on the edibility or toxicity of each recognized species
