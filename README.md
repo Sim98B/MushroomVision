@@ -3,4 +3,4 @@
 
 This project was born from the combination of passion, technical skills and the need to have a tool that could help those who, like me, happened to be passionate about mushroom picking in the fall season.
 
-The first project is [Mushroom Vision 4]("/MV4/README.md")
+The first project is [Mushroom Vision 4]("MushroomVision/MV4/README.md")
