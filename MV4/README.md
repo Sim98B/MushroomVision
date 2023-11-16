@@ -31,10 +31,6 @@ The 161 form ouperformed the others as shown in the confusion matrices below.
 
 The main goal was to minimize the classifications of poisonous mushrooms as edible, those that could potentially bring the most harm to potential users. In the validation set, no such errors are made while in the test set, probably due to the imbalance in the classes, misclassifications in this direction are present.
 
-Despite this, the model offers very accurate performance as well as very high confidence levels on its predictions as shown by this little preview.
+Despite this, the model offers very accurate performance as well as very high confidence levels on its predictions.
 
-<video width="640" height="360" controls>
-  <source src="MV4_demo.mp4" type="video/mp4">
-  Il tuo browser non supporta il tag video.
-</video>
-
+# **WARNING: This app is purely for demonstration purposes, has no application intent, and therefore whatever answers it gives are not to be considered reliable in any case. Only accurate mycological analyses can give reliable results about whether a mushroom belongs to a species and, therefore, whether it is edible. Wherever you go, whether to harvest or just to observe this wonder of nature always have respect for the places you visit, not polluting and not destroying nature.**
