@@ -33,5 +33,8 @@ The main goal was to minimize the classifications of poisonous mushrooms as edib
 
 Despite this, the model offers very accurate performance as well as very high confidence levels on its predictions as shown by this little preview.
 
-<video src="
+<video width="640" height="360" controls>
+  <source src="MV4_demo.mp4" type="video/mp4">
+  Il tuo browser non supporta il tag video.
+</video>
 
