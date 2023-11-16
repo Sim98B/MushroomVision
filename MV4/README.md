@@ -6,6 +6,10 @@ The [Mushroom Vision 4 app](https://huggingface.co/spaces/simo98/MushroomVision4
 
 The table below shows the species considered in this study.
 
-| Species name | Colonna Centro | Colonna Destra |
-|:----------------:|:--------------:|:--------------:|
+|| **Species name** | **Common name** | **Photo** | **Edibility** |
+|:----:|:----------------:|:---------------:|:-------------:|:-------------:|
+|**01**| [Amanita Muscaria](https://wikipedia.org/wiki/Amanita_muscaria) | Cocco del monte | <img src="/Species/02_AmanitaMuscaria.jpg" alt="Cocco" width="250" height="150" /> | Toxic |
+|**02**| [Amanita Vaginata](https://wikipedia.org/wiki/Amanita_vaginata) | Amanita| <img src="/Species/03_AmanitaVaginata.jpg" alt="Cocco" width="250" height="150" /> | Not edible |
+|**03**| [Boletus Edulis](https://wikipedia.org/wiki/Boletus_edulis) | Porcino | <img src="/Species/07_BoletusEdulis.jpg" alt="Cocco" width="250" height="150" /> | Great |
+|**04**| [Boletus Erythropus](https://it.wikipedia.org/wiki/Neoboletus_erythropus) | Cappella Malefica | <img src="/Species/08_BoletusErythropus.jpg" alt="Cocco" width="250" height="150" /> | Toxic when raw |
 
