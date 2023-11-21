@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_300.jpg</filename>
+    <size>
+        <width>698</width>
+        <height>541</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>apple</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.71</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>58.916904</xmin>
+            <ymin>21.961174</ymin>
+            <xmax>308.558746</xmax>
+            <ymax>242.552689</ymax>
+        </bndbox>
+    </object>
+</annotation>

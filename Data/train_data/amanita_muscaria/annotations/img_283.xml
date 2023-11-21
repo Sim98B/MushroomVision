@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_283.jpg</filename>
+    <size>
+        <width>2500</width>
+        <height>750</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>bird</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.71</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>939.624451</xmin>
+            <ymin>38.949352</ymin>
+            <xmax>1649.340454</xmax>
+            <ymax>749.001343</ymax>
+        </bndbox>
+    </object>
+</annotation>

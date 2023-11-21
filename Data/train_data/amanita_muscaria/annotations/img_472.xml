@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_472.jpg</filename>
+    <size>
+        <width>192</width>
+        <height>192</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>orange</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.63</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>48.750000</xmin>
+            <ymin>51.734375</ymin>
+            <xmax>120.375000</xmax>
+            <ymax>103.463547</ymax>
+        </bndbox>
+    </object>
+</annotation>

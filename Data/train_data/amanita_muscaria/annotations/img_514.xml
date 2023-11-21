@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_514.jpg</filename>
+    <size>
+        <width>800</width>
+        <height>510</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>bird</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.51</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>206.742493</xmin>
+            <ymin>83.837265</ymin>
+            <xmax>458.427490</xmax>
+            <ymax>361.292145</ymax>
+        </bndbox>
+    </object>
+</annotation>

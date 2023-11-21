@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_492.jpg</filename>
+    <size>
+        <width>291</width>
+        <height>173</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>bird</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.66</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>28.903782</xmin>
+            <ymin>74.572250</ymin>
+            <xmax>128.560135</xmax>
+            <ymax>171.011566</ymax>
+        </bndbox>
+    </object>
+</annotation>

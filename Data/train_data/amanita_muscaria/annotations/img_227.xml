@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_227.jpg</filename>
+    <size>
+        <width>800</width>
+        <height>563</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>broccoli</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.52</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>681.148743</xmin>
+            <ymin>141.749557</ymin>
+            <xmax>799.001221</xmax>
+            <ymax>227.596802</ymax>
+        </bndbox>
+    </object>
+</annotation>

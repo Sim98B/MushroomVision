@@ -1,0 +1,26 @@
+<annotation>
+    <folder>amanita_muscaria</folder>
+    <filename>img_347.jpg</filename>
+    <size>
+        <width>800</width>
+        <height>738</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>pizza</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <confidence>0.78</confidence>
+        <pixels>
+            <id>0</id>
+        </pixels>
+        <bndbox>
+            <xmin>136.830002</xmin>
+            <ymin>38.948486</ymin>
+            <xmax>753.058777</xmax>
+            <ymax>695.058289</ymax>
+        </bndbox>
+    </object>
+</annotation>
