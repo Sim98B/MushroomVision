@@ -44,7 +44,7 @@ def eval_step(model: torch.nn.Module,
       test_loss += loss.item() 
       y_pred_labels = y_pred_logits.argmax(dim=1)
       if metric == "f1" and len(np.unique(y)):
-        test_metric += metric_dict[metric](y.cpu().detach().numpy(), y_pred_labels.cpu().detach().numpy(), average = "weighted")
+        test_metric += metric_dict[metric](y.cpu().numpy(), y_pred_labels.cpu().numpy(), average = "weighted")
       else:
         test_metric += metric_dict[metric](y.cpu().detach().numpy(), y_pred_labels.cpu().detach().numpy())
 
@@ -301,7 +301,7 @@ def train_step(model,
     optimizer.step()
     y_pred_class = torch.argmax(torch.softmax(y_pred, dim=1), dim=1)
     if metric == "f1" and len(np.unique(y)):
-      train_metric += metric_dict[metric](y.cpu().detach().numpy(), y_pred_class.cpu().detach().numpy(), average = "weighted")
+      train_metric += metric_dict[metric](y.cpu().numpy(), y_pred_class.cpu().numpy(), average = "weighted")
     else:
       train_metric += metric_dict[metric](y.cpu().detach().numpy(), y_pred_class.cpu().detach().numpy())
 
