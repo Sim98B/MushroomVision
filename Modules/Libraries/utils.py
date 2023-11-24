@@ -12,6 +12,39 @@ from sklearn.metrics import confusion_matrix
 import torch
 import torch.nn as nn
 from torch.utils.tensorboard import SummaryWriter
+from typing import Union
+
+def binary_dataset(dataset: torchvision.datasets,
+                   target_classes: Union[list, int]):
+  
+  """
+  Changes the classes of a torchvision.dataset from many to binary.
+
+  Args:
+    dataset (torchvision.datasets): target dataset
+    target_classes (list or int): target class indices that will be coded as 1
+
+  Returns:
+    The input dataset with binary classes
+  """
+  print(f"Old classes: {len(dataset.classes)}")
+
+  if isinstance(target_classes, int):
+    for idx, (img, label) in enumerate(dataset):
+      if label == target_classes:
+        dataset.targets[idx] = 1
+      else:
+        dataset.targets[idx] = 0
+  else:
+    for idx, (img, label) in enumerate(dataset):
+      if label in target_classes:
+        dataset.targets[idx] = 1
+      else:
+        dataset.targets[idx] = 0
+
+  print(f"New classes: {len(np.unique(dataset.targets))}")
+
+  return dataset
 
 def create_writer(experiment_name: str, 
                   model_name: str, 
