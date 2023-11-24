@@ -11,6 +11,7 @@ import seaborn as sns
 from sklearn.metrics import confusion_matrix
 import torch
 import torch.nn as nn
+import torchvision
 from torch.utils.tensorboard import SummaryWriter
 from typing import Union
 
