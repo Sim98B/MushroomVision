@@ -43,7 +43,7 @@ def eval_step(model: torch.nn.Module,
       loss = loss_function(y_pred_logits, y)
       test_loss += loss.item() 
       y_pred_labels = y_pred_logits.argmax(dim=1)
-      y, y_pred_labels = y.to("cpu), y_pred_labels.to("cpu)
+      y, y_pred_labels = y.to("cpu"), y_pred_labels.to("cpu")
       if metric == "f1" and len(np.unique(y)) > 2:
         test_metric += metric_dict[metric](y, y_pred_labels, average = "weighted")
       else:
