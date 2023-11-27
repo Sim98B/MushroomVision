@@ -16,13 +16,13 @@ def create_model(model_name: Literal["alexnet", "densenet121", "densenet161", "d
   Available models are: AlexNet, DenseNet121, DenseNet161, DenseNet169, DenseNet201, ResnNet50, VGG16
 
   Args:
-    model_name
+    model_name (str): one architecture among those available
     output_shape (int): number of classes
     seed (int): sedd for reproducibility
 
   Returns:
-    model: AlexNet with 'output_shape' output neurons
-    model_transformer: AlexNet transformer
+    model: correpsonding model with 'output_shape' output neurons
+    model_transformer: corresponding transformer
   """
   
   if seed:
