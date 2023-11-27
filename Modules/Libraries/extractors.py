@@ -1,18 +1,22 @@
+from typing import Literal
 import torch
 from torch import nn
 import torchvision
 from torchvision.models import alexnet, vgg16, densenet121, densenet161, densenet169, densenet201, resnet50
 from torchvision.models import AlexNet_Weights, VGG16_Weights, DenseNet121_Weights, DenseNet161_Weights, DenseNet169_Weights, DenseNet201_Weights, ResNet50_Weights
 
-def create_alexnet(output_shape: int,
-                   seed: int = 42):
+def create_model(model_name: Literal["alexnet", "densenet121", "densenet161", "densenet169", "densenet201", "resnet50", "vgg16"],
+                 output_shape: int,
+                 seed: int = 42):
 
   """
-  Creates an AlexNet as a feature extractor setting all parameters as not trainable 
+  Creates a feature extractor setting all parameters as not trainable 
   and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
+  Also creates a corresponding 'torchivision.transforms' transform to preprocess data
+  Available models are: AlexNet, DenseNet121, DenseNet161, DenseNet169, DenseNet201, ResnNet50, VGG16
 
   Args:
+    model_name
     output_shape (int): number of classes
     seed (int): sedd for reproducibility
 
@@ -25,198 +29,67 @@ def create_alexnet(output_shape: int,
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
 
-  model = alexnet(weights = AlexNet_Weights.DEFAULT)
-  model_transformer = AlexNet_Weights.DEFAULT.transforms()
+  models_dict = {"alexnet" : torchvision.models.alexnet,
+                 "densenet121" : torchvision.models.densenet121,
+                 "densenet161" : torchvision.models.densenet161,
+                 "densenet169" : torchvision.models.densenet169,
+                 "densenet201" : torchvision.models.densenet201,
+                 "resnet50": torchvision.models.resnet50,
+                 "vgg16": torchvision.models.vgg16}
 
-  for param in model.parameters():
-    param.requires_grad = False
+  weights_dict = {"alexnet" : torchvision.models.AlexNet_Weights,
+                 "densenet121" : torchvision.models.DenseNet121_Weights,
+                 "densenet161" : torchvision.models.DenseNet161_Weights,
+                 "densenet169" : torchvision.models.DenseNet169_Weights,
+                 "densenet201" : torchvision.models.DenseNet201_Weights,
+                 "resnet50": torchvision.models.ResNet50_Weights,
+                 "vgg16": torchvision.models.VGG16_Weights}
 
-  model.classifier[6] = nn.Linear(in_features = 4096, out_features = output_shape, bias=True)
+  weights = weights_dict[model_name]
 
-  return model, model_transformer
+  model = models_dict[model_name](weights = weights)
+  model_transform = weights.DEFAULT.transforms()
 
-def create_densenet121(output_shape: int,
-                       seed: int = 42):
+  if model_name == "alexnet":
+    for param in model.parameters():
+      param.requires_grad = False
 
-  """
-  Creates an DenseNet121 as a feature extractor setting all parameters as not trainable 
-  and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
+    model.classifier[6] = nn.Linear(in_features = 4096, out_features = output_shape, bias=True)
 
-  Args:
-    output_shape (int): number of classes
-    seed (int): sedd for reproducibility
+  elif model_name == "densenet121":
+    for param in model.parameters():
+      param.requires_grad = False
 
-  Returns:
-    model: DenseNet121 with 'output_shape' output neurons
-    model_transformer: DenseNet121 transformer
-  """
+    model.classifier = nn.Linear(in_features = 1024, out_features = output_shape, bias=True)
 
-  if seed:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
+  elif model_name == "densenet161":
+    for param in model.parameters():
+      param.requires_grad = False
 
-  model = densenet121(weights = DenseNet121_Weights.DEFAULT)
-  model_transformer = DenseNet121_Weights.DEFAULT.transforms()
+    model.classifier = nn.Linear(in_features = 2208, out_features = output_shape, bias=True)
 
-  for param in model.parameters():
-    param.requires_grad = False
+  elif model_name == "densenet169":
+    for param in model.parameters():
+      param.requires_grad = False
 
-  model.classifier = nn.Linear(in_features = 1024, out_features = output_shape, bias=True)
+    model.classifier = nn.Linear(in_features = 1664, out_features = output_shape, bias=True)
 
-  return model, model_transformer
+  elif model_name == "densenet201":
+    for param in model.parameters():
+      param.requires_grad = False
 
-def create_densenet161(output_shape: int,
-                       seed: int = 42):
+    model.classifier = nn.Linear(in_features = 1920, out_features = output_shape, bias=True)
 
-  """
-  Creates an DenseNet161 as a feature extractor setting all parameters as not trainable 
-  and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
+  elif model_name == "resnet50":
+    for param in model.parameters():
+      param.requires_grad = False
 
-  Args:
-    output_shape (int): number of classes
-    seed (int): sedd for reproducibility
+    model.fc = nn.Linear(in_features = 2048, out_features = output_shape, bias=True)
 
-  Returns:
-    model: DenseNet161 with 'output_shape' output neurons
-    model_transformer: DenseNet161 transformer
-  """
+  elif model_name == "vgg16":
+    for param in model.parameters():
+      param.requires_grad = False
 
-  if seed:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
+    model.classifier[6] = nn.Linear(in_features = 4096, out_features = output_shape, bias=True)
 
-  model = densenet161(weights = DenseNet161_Weights.DEFAULT)
-  model_transformer = DenseNet161_Weights.DEFAULT.transforms()
-
-  for param in model.parameters():
-    param.requires_grad = False
-
-  model.classifier = nn.Linear(in_features = 2208, out_features = output_shape, bias=True)
-
-  return model, model_transformer
-
-def create_densenet169(output_shape: int,
-                       seed: int = 42):
-
-  """
-  Creates an DenseNet169 as a feature extractor setting all parameters as not trainable 
-  and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
-
-  Args:
-    output_shape (int): number of classes
-    seed (int): sedd for reproducibility
-
-  Returns:
-    model: DenseNet169 with 'output_shape' output neurons
-    model_transformer: DenseNet169 transformer
-  """
-
-  if seed:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-
-  model = densenet169(weights = DenseNet169_Weights.DEFAULT)
-  model_transformer = DenseNet169_Weights.DEFAULT.transforms()
-
-  for param in model.parameters():
-    param.requires_grad = False
-
-  model.classifier = nn.Linear(in_features = 1664, out_features = output_shape, bias=True)
-
-  return model, model_transformer
-
-def create_densenet201(output_shape: int,
-                       seed: int = 42):
-
-  """
-  Creates an DenseNet201 as a feature extractor setting all parameters as not trainable 
-  and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
-
-  Args:
-    output_shape (int): number of classes
-    seed (int): sedd for reproducibility
-
-  Returns:
-    model: DenseNet201 with 'output_shape' output neurons
-    model_transformer: DenseNet201 transformer
-  """
-
-  if seed:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-
-  model = densenet201(weights = DenseNet201_Weights.DEFAULT)
-  model_transformer = DenseNet201_Weights.DEFAULT.transforms()
-
-  for param in model.parameters():
-    param.requires_grad = False
-
-  model.classifier = nn.Linear(in_features = 1920, out_features = output_shape, bias=True)
-
-  return model, model_transformer
-
-def create_resnet50(output_shape: int,
-                    seed: int = 42):
-
-  """
-  Creates an ResNet50 as a feature extractor setting all parameters as not trainable 
-  and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
-
-  Args:
-    output_shape (int): number of classes
-    seed (int): sedd for reproducibility
-
-  Returns:
-    model: ResNet50 with 'output_shape' output neurons
-    model_transformer: ResNet50 transformer
-  """
-
-  if seed:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-
-  model = resnet50(weights = ResNet50_Weights.DEFAULT)
-  model_transformer = ResNet50_Weights.DEFAULT.transforms()
-
-  for param in model.parameters():
-    param.requires_grad = False
-
-  model.fc = nn.Linear(in_features = 2048, out_features = output_shape, bias=True)
-
-  return model, model_transformer
-
-def create_vgg16(output_shape: int,
-                 seed: int = 42):
-
-  """
-  Creates an VGG16 as a feature extractor setting all parameters as not trainable 
-  and changing the shape of the classifier layer equals to 'output_shape'.
-  Also creates a corresponding 'torchivision.transforms' trasnformer to preprocess data
-
-  Args:
-    output_shape (int): number of classes
-    seed (int): sedd for reproducibility
-
-  Returns:
-    model: VGG16 with 'output_shape' output neurons
-    model_transformer: VGG16 transformer
-  """
-
-  if seed:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-
-  model = vgg16(weights = VGG16_Weights.DEFAULT)
-  model_transformer = VGG16_Weights.DEFAULT.transforms()
-
-  for param in model.parameters():
-    param.requires_grad = False
-
-  model.classifier[6] = nn.Linear(in_features = 4096, out_features = output_shape, bias=True)
-
-  return model, model_transformer
+  return model, model_transform
