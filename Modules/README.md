@@ -7,20 +7,13 @@ Libraries/
 │   ├── plot_dataloader_img
 │   └── plot_random_images
 ├── extractor.py/
-│   ├── create_alexnet
-│   ├── create_densenet121
-│   ├── create_densenet161
-│   ├── create_densenet169
-│   ├── create_densenet201
-│   ├── create_resnet50
-│   └── create_vgg16
+│   └── create_model
 ├── model_ops.py/
 │   ├── eval_step
 │   ├── make_predictions
 │   ├── train
 │   └── train_step
 └── utils.py/
-    ├── binary_dataset
     ├── create_writer
     ├── delta_time
     ├── linear_baseline
