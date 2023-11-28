@@ -44,7 +44,7 @@ def create_model(model_name: Literal["alexnet", "densenet121", "densenet161", "d
                  "densenet161" : torchvision.models.DenseNet161_Weights,
                  "densenet169" : torchvision.models.DenseNet169_Weights,
                  "densenet201" : torchvision.models.DenseNet201_Weights,
-                "efficientnet_b1" : torchvision.models.EfficientNet_B1_Weights,
+                 "efficientnet_b1" : torchvision.models.EfficientNet_B1_Weights,
                  "efficientnet_v2l" : torchvision.models.EfficientNet_V2_L_Weights,
                  "resnet50": torchvision.models.ResNet50_Weights,
                  "vgg16": torchvision.models.VGG16_Weights}
