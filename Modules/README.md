@@ -7,7 +7,8 @@ Libraries/
 │   ├── plot_dataloader_img
 │   └── plot_random_images
 ├── extractor.py/
-│   └── create_model
+│   ├── create_model
+│   └── resnet9
 ├── model_ops.py/
 │   ├── eval_step
 │   ├── make_predictions
