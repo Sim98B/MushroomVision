@@ -109,3 +109,63 @@ def create_model(model_name: Literal["alexnet", "densenet121", "densenet161", "d
     model.classifier[6] = nn.Linear(in_features = 4096, out_features = output_shape, bias=True)
 
   return model, model_transform
+
+def resnet9(in_channels: int,
+            num_classes: int):
+  
+  """
+  Creates a ResNet9 with his tensor for a 75% accuracy on CIFAR100
+
+  Args:
+    in_channels (int): number of input channels of a convolutional block
+    num_classes (int): number of classes in the output layer
+
+  Returns:
+    model: ResNet9 model
+    transform: transforms to be applied to images
+  """
+  def conv_block(in_channels, out_channels, pool=False):
+    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),
+              nn.BatchNorm2d(out_channels),
+              nn.ReLU(inplace=True)]
+    if pool: layers.append(nn.MaxPool2d(2))
+    return nn.Sequential(*layers)
+
+  transform = transforms.Compose([transforms.Resize(size = (32, 32)),
+                    transforms.ToTensor(), 
+                    transforms.Normalize(mean=[0.5070751592371323, 0.48654887331495095, 0.4409178433670343], 
+                    std=[0.26733428587941854, 0.25643846292120615, 0.2761504713263903])])
+
+  class ResNet9(nn.Module):
+    def __init__(self, in_channels, num_classes):
+        super().__init__()
+
+        self.conv1 = conv_block(in_channels, 64)
+        self.conv2 = conv_block(64, 128, pool=True)
+        self.res1 = nn.Sequential(conv_block(128, 128), conv_block(128, 128))
+
+        self.conv3 = conv_block(128, 256, pool=True)
+        self.conv4 = conv_block(256, 512, pool=True)
+        self.res2 = nn.Sequential(conv_block(512, 512), conv_block(512, 512))
+        self.conv5 = conv_block(512, 1028, pool=True)
+        self.res3 = nn.Sequential(conv_block(1028, 1028), conv_block(1028, 1028))
+
+        self.classifier = nn.Sequential(nn.MaxPool2d(2),
+                                        nn.Flatten(),
+                                        nn.Linear(1028, num_classes))
+
+    def forward(self, xb):
+        out = self.conv1(xb)
+        out = self.conv2(out)
+        out = self.res1(out) + out
+        out = self.conv3(out)
+        out = self.conv4(out)
+        out = self.res2(out) + out
+        out = self.conv5(out)
+        out = self.res3(out) + out
+        out = self.classifier(out)
+        return out
+
+  model = ResNet9(in_channels, num_classes)
+
+  return model, transform
